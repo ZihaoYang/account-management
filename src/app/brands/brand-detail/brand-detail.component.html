@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button type="button" class="btn btn-default" (click)="onBackBrand()">返回</button>
+    <button type="button" class="btn btn-default" (click)="onEditBrand()">修改</button>
+    <button type="button" class="btn btn-default" (click)="onDeleteBrand()">删除</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <p><span>brandName: </span>{{brand.name}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p><span>category: </span>{{brand.salecategory}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p><span>logoPath: </span></p>
+    <img src="{{brand.logo}}" alt="{{brand.name}}" class="img-responsive" style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p><span>account: </span>{{brand.adminAcount.username}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p><span>initPassword: </span>{{brand.adminAcount.password}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p><span>accountNum: </span>{{brand.totalAccountNum}}</p>
+  </div>
+</div>
+

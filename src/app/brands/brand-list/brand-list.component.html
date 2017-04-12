@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewBrand()">New Brand</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-brand-item *ngFor="let brandEl of brands; let i = index"
+                    [brand]='brandEl' [index]="i"></app-brand-item>
+  </div>
+</div>

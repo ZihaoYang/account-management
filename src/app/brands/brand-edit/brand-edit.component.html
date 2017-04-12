@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="brandName">品牌名称</label>
+            <input type="text" id="brandName" formControlName="brandName" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="category">产品品类</label>
+            <input type="text" id="category" formControlName="category" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="logoPath">LOGO</label>
+            <input type="text" id="logoPath" formControlName="logoPath" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="account">登陆账号</label>
+            <input type="text" id="account" formControlName="account" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="initPassword">初始密码</label>
+            <input type="text" id="initPassword" formControlName="initPassword" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="accountNum">子账号数量</label>
+            <input type="text" id="accountNum" formControlName="accountNum" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-default center-block" (click)="onCancel()">Cancel</button>
+        </div>
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success center-block" [disabled]="!brandForm.valid">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
