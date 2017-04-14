@@ -1,0 +1,44 @@
+<div class="mit-city-select">
+  <div class="select" (click)="isProvinceExpand = !isProvinceExpand">
+    <input type="text" placeholder="选择所在省"
+           [(ngModel)]="provinceselected!=undefined?provinceselected.name:provinceselected" [disabled]="true">
+  </div>
+  <div class="select" (click)="isCityExpand = !isCityExpand">
+    <input type="text" placeholder="选择所在市" [(ngModel)]="cityselected!=undefined?cityselected.name:cityselected"
+           [disabled]="true">
+  </div>
+  <div class="select" (click)="isDistrictExpand = !isDistrictExpand">
+    <input type="text" placeholder="选择所在区县"
+           [(ngModel)]="districtselected!=undefined?districtselected.name:districtselected" [disabled]="true">
+  </div>
+  <div class="list-menu" *ngIf="isProvinceExpand">
+    <div class="sub-list">
+      <ul>
+        <li *ngFor="let item of list | MitCitySelectPipe" (click)="provinceId = item.value;provinceName = item.name;
+        cityId = undefined; selectProvinceHandle(provinceName,provinceId);"
+            [class.active]="item.value === provinceId">{{item.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="list-menu" *ngIf="isCityExpand && provinceselected.value">
+    <div class="sub-list">
+      <ul>
+        <li *ngFor="let item of list | MitCitySelectPipe:provinceselected.value" (click)="cityId = item.value;cityName = item.name;
+        selectCityHandle(cityName,cityId);"
+            [class.active]="item.value === cityId">{{item.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="list-menu" *ngIf="isDistrictExpand && cityselected.value">
+    <div class="sub-list">
+      <ul>
+        <li *ngFor="let item of list | MitCitySelectPipe:cityselected.value" (click)="districtId = item.value;districtName = item.name;
+      selectDistrictHandle(districtName,districtId);"
+            [class.active]="item.value === districtId">{{item.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

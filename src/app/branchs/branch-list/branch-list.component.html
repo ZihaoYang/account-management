@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewBranch()">新增分店</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    目前已登记{{branchs.length}}家店面，已有{{totalAccounts}}个账号在使用。
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-branch-item *ngFor="let branchEl of branchs; let i = index"
+                     [branch]='branchEl' [index]="i"></app-branch-item>
+  </div>
+</div>

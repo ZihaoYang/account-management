@@ -1,0 +1,33 @@
+<h1>分店列表</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="branchForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <label>分店地址</label>
+          <app-mit-city-select (result)="citySelect($event)"></app-mit-city-select>
+          <div class="form-group" style="margin-top: 20px;">
+            <input type="text" id="address" formControlName="address" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="branchName">分店简称</label>
+            <input type="text" id="branchName" formControlName="name" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success center-block" [disabled]="!branchForm.valid">确定</button>
+        </div>
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-default center-block" (click)="onCancel()">取消</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -1,4 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
+import {Branch} from "../../../model/branch.model";
 
 @Component({
   selector: 'app-branch-item',
@@ -6,7 +7,8 @@ import {Component, OnInit} from "@angular/core";
   styleUrls: ['./branch-item.component.css']
 })
 export class BranchItemComponent implements OnInit {
-
+  @Input() branch: Branch;
+  @Input() index: number;
   constructor() {
   }
 

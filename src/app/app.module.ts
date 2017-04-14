@@ -9,14 +9,17 @@ import {BrandListComponent} from "./brands/brand-list/brand-list.component";
 import {BrandItemComponent} from "./brands/brand-list/brand-item/brand-item.component";
 import {BrandDetailComponent} from "./brands/brand-detail/brand-detail.component";
 import {SigninComponent} from "./auth/signin/signin.component";
-import {BranchComponent} from "./branch/branch.component";
-import {BranchListComponent} from "./branch/branch-list/branch-list.component";
-import {BranchEditComponent} from "./branch/branch-edit/branch-edit.component";
-import {BranchDetailComponent} from "./branch/branch-detail/branch-detail.component";
-import {BranchItemComponent} from "./branch/branch-list/branch-item/branch-item.component";
-import {BranchEmptyComponent} from "./branch/branch-empty/branch-empty.component";
+import {BranchsComponent} from "./branchs/branchs.component";
+import {BranchListComponent} from "./branchs/branch-list/branch-list.component";
+import {BranchEditComponent} from "./branchs/branch-edit/branch-edit.component";
+import {BranchDetailComponent} from "./branchs/branch-detail/branch-detail.component";
+import {BranchItemComponent} from "./branchs/branch-list/branch-item/branch-item.component";
+import {BranchEmptyComponent} from "./branchs/branch-empty/branch-empty.component";
 import {BrandService} from "./brands/brand.service";
 import {AppRoutingModule} from "./app-routing.module";
+import {MitCitySelectModule} from "./mit-city-select/mit-city-select.module";
+import {BranchNewComponent} from "./branchs/branch-new/branch-new.component";
+import {MitCitySelectService} from "./mit-city-select/mit-city-select.service";
 
 @NgModule({
   declarations: [
@@ -27,21 +30,22 @@ import {AppRoutingModule} from "./app-routing.module";
     BrandItemComponent,
     BrandDetailComponent,
     SigninComponent,
-    BranchComponent,
+    BranchsComponent,
     BranchListComponent,
     BranchEditComponent,
-    BranchDetailComponent,
     BranchItemComponent,
-    BranchEmptyComponent
+    BranchEmptyComponent,
+    BranchNewComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MitCitySelectModule
   ],
-  providers: [BrandService],
+  providers: [BrandService, MitCitySelectService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,76 @@
+<h1>分店列表</h1>
+<p>剩余可分配帐号：{{avaliableAccounts}}个</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="branchForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <label>分店地址</label>
+          <app-mit-city-select (result)="citySelect($event)"
+                               [provinceselected]="province"
+                               [cityselected]="city"
+                               [districtselected]="district"
+          ></app-mit-city-select>
+          <div class="form-group" style="margin-top: 20px;">
+            <input type="text" id="address" formControlName="address" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="branchName">分店简称</label>
+            <input type="text" id="branchName" formControlName="name" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12" formArrayName="accounts">
+          <!--<div class="row">-->
+          <div class="row"
+               *ngFor="let account of branchForm.get('accounts').controls; let i = index"
+               [formGroupName]="i"
+               style="margin-top: 10px;">
+            <div class="col-xs-2">
+              <p>分店简称</p>
+            </div>
+            <div class="col-xs-4">
+              <input type="text" class="form-control" formControlName="id" style="display: none">
+              <input type="text" class="form-control" formControlName="username">
+            </div>
+            <div class="col-xs-2">
+              <input type="text" class="form-control" formControlName="password">
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger">复制账号密码</button>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger" (click)="onDeleteAccount(i)">注销</button>
+            </div>
+            <!--<div class="col-xs-2">-->
+            <!--<button type="button" class="btn btn-danger" (click)="onDeleteIngredient(i)">注销</button>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-default center-block" (click)="onAssignAccount()">分配账号</button>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+        <!--<div class="col-xs-12">-->
+        <!--<button type="submit" class="btn btn-success center-block" [disabled]="!branchForm.valid">确定修改</button>-->
+        <!--</div>-->
+        <!--<div class="col-xs-12">-->
+        <!--<button type="button" class="btn btn-default center-block" (click)="onCancel()">返回分店列表</button>-->
+        <!--</div>-->
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-danger center-block" (click)="onDeleteBranch()">删除分店</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
