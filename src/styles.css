@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+
+}
+a:link { text-decoration: none}
+a:active { text-decoration:none}
+a:hover { text-decoration:none}
+a:visited { text-decoration: none}
+
+
+.center{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+h1{
+  opacity:0.87;
+  font-size:34px;
+  color:#999999;
+  letter-spacing:0;
+  text-align:center;
+}
+
+h2{
+  font-size:34px;
+  color:#ffffff;
+  text-align:center;
+  font-weight: normal;
+}
+
+h3{
+  opacity:0.87;
+  font-size:34px;
+  color:#2196f3;
+  letter-spacing:0;
+  text-align:center;
+  margin-top: 20px;
+  margin-bottom: 0px !important;
+  font-weight: normal;
+}
+.confirm{
+  background-image:linear-gradient(-178deg, #72d572 0%, #259b24 100%);
+  border-radius:2px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 300px;
+  height: 40px;
+}
+
+.cancel{
+  background-image:linear-gradient(-179deg, #e0e0e0 0%, #9e9e9e 100%);
+  border-radius:2px;
+  color: #ffffff;
+  font-size: 18px;
+  width: 300px;
+  height: 40px;
+}
+p{
+  font-size:16px;
+  color:#4d4d4d;
+  font-weight: normal;
+}

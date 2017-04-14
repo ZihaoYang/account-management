@@ -1,3 +1,4 @@
+import 'hammerjs';
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -17,6 +18,9 @@ import {BranchItemComponent} from "./branch/branch-list/branch-item/branch-item.
 import {BranchEmptyComponent} from "./branch/branch-empty/branch-empty.component";
 import {BrandService} from "./brands/brand.service";
 import {AppRoutingModule} from "./app-routing.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MdButtonModule, MdCardModule, MdInputModule} from "@angular/material";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +36,20 @@ import {AppRoutingModule} from "./app-routing.module";
     BranchEditComponent,
     BranchDetailComponent,
     BranchItemComponent,
-    BranchEmptyComponent
+    BranchEmptyComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdCardModule,
+    MdInputModule
+
   ],
   providers: [BrandService],
   bootstrap: [AppComponent]

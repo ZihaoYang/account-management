@@ -1,12 +1,16 @@
-<div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success" (click)="onNewBrand()">New Brand</button>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-xs-12">
+<h1>新增品牌</h1>
+<div class="container">
+  <div layout="row" style="margin-top: 30px">
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+      <a md-button routerLink="." class="btn btn-success center" (click)="onNewBrand()">
+        <i class="material-icons add-icon" >add</i>
+      </a>
+      <p style="text-align: center">新建品牌</p>
+    </div>
     <app-brand-item *ngFor="let brandEl of brands; let i = index"
-                    [brand]='brandEl' [index]="i"></app-brand-item>
+                    [brand]='brandEl' [index]="i" class="brand_item"></app-brand-item>
   </div>
 </div>
+
+
+
