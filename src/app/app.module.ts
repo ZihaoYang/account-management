@@ -12,7 +12,6 @@ import {SigninComponent} from "./auth/signin/signin.component";
 import {BranchsComponent} from "./branchs/branchs.component";
 import {BranchListComponent} from "./branchs/branch-list/branch-list.component";
 import {BranchEditComponent} from "./branchs/branch-edit/branch-edit.component";
-import {BranchDetailComponent} from "./branchs/branch-detail/branch-detail.component";
 import {BranchItemComponent} from "./branchs/branch-list/branch-item/branch-item.component";
 import {BranchEmptyComponent} from "./branchs/branch-empty/branch-empty.component";
 import {BrandService} from "./brands/brand.service";
