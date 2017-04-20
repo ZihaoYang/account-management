@@ -1,11 +1,9 @@
 import {Component, OnInit} from "@angular/core";
-import {BranchService} from "./branch.service";
 
 @Component({
   selector: 'app-branch',
   templateUrl: 'branchs.component.html',
-  styleUrls: ['branchs.component.css'],
-  providers: [BranchService]
+  styleUrls: ['branchs.component.css']
 })
 export class BranchsComponent implements OnInit {
 

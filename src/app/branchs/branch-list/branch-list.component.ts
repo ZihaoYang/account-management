@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Branch} from "../../model/branch.model";
 import {BranchService} from "../branch.service";
+import {MdDialog} from "@angular/material";
 
 @Component({
   selector: 'app-branch-list',
@@ -14,9 +15,13 @@ export class BranchListComponent implements OnInit {
   totalAccounts = 0;
   subscription: Subscription;
 
+  selectedOption: string;
+
+
   constructor(private branchService: BranchService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public dialog: MdDialog) {
   }
 
   ngOnInit() {
@@ -41,5 +46,19 @@ export class BranchListComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  // openDialog() {
+  //   // let config = new MdDialogConfig();
+  //   let dialogRef = this.dialog.open(DialogResultExampleDialog,{
+  //         disableClose: true
+  //       });
+  //   dialogRef.componentInstance.test = "test";
+  //   // setTimeout(() => {
+  //   //   dialogRef.close();
+  //   // }, 3000);
+  //   // dialogRef.afterClosed().subscribe(result => {
+  //   //   this.selectedOption = result;
+  //   // });
+  // }
 
 }

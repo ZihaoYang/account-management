@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BranchService} from "../branch.service";
 import {Branch} from "../../model/branch.model";
+import {MdDialog} from "@angular/material";
 
 @Component({
   selector: 'app-branch-new',
@@ -19,7 +20,8 @@ export class BranchNewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private branchService: BranchService,
-              private router: Router) {
+              private router: Router,
+              public dialog: MdDialog) {
   }
 
   citySelect(e) {
@@ -34,10 +36,17 @@ export class BranchNewComponent implements OnInit {
     let name = '';
     let address = '';
     let cityCode = '';
+    let username = '';
+    // if(this.branchService.getBranchs().length == 0){
+    //   username =
+    // }
+    let password = '123456';
 
     this.branchForm = new FormGroup({
       'name': new FormControl(name, Validators.required),
-      'address': new FormControl(address, Validators.required)
+      'address': new FormControl(address, Validators.required),
+      'username': new FormControl(username),
+      'password': new FormControl(password)
     });
 
 
@@ -52,13 +61,20 @@ export class BranchNewComponent implements OnInit {
   }
 
   onSubmit() {
-
-    const newBranch = new Branch(this.branchId, this.branchForm.value['name'],
+    const newBranch = new Branch(this.branchForm.value['name'],
       this.branchForm.value['address'],
       this.cityCode,
-      []);
+      [], this.branchId);
     console.log(newBranch);
     this.branchService.addBranch(newBranch);
+    // let dialogRef = this.dialog.open(ToasterComponent,{
+    //           disableClose: true
+    //         });
+    // dialogRef.componentInstance.toaster = "新增成功！";
+    //   setTimeout(() => {
+    //     dialogRef.close();
+    //   }, 2000);
+
     this.onCancel();
   }
 

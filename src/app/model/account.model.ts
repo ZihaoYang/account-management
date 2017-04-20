@@ -1,4 +1,4 @@
 export class Account {
-  constructor(public id: number, public username: string, public password: string) {
+  constructor(public username: string, public password: string, public id?: number) {
   }
 }

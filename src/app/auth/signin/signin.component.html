@@ -1,22 +1,22 @@
-<div class="login-body">
-<h2>布格账号管理系统</h2>
+<form class="login-body" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>布格账号管理系统</h2>
   <md-card class="center">
     <h3>登录</h3>
     <md-input-container>
-    <input mdInput placeholder="请输入您的用户名" value="">
+      <input mdInput placeholder="请输入您的用户名" formControlName="userName">
     </md-input-container>
     <div class="login_alert">
       <p>该账号不存在</p>
       <i class="material-icons arrow-icon">warning</i>
     </div>
     <md-input-container>
-      <input mdInput placeholder="请输入您的密码" value="">
+      <input mdInput placeholder="请输入您的密码" formControlName="password">
     </md-input-container>
     <div class="login_alert">
       <p>密码不正确</p>
       <i class="material-icons arrow-icon">warning</i>
     </div>
-    <a md-button routerLink="." class="login_btn confirm">登陆</a>
+    <button md-button routerLink="." type="submit" class="login_btn confirm">登陆</button>
 
   </md-card>
-</div>
+</form>

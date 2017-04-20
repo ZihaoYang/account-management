@@ -1,6 +1,10 @@
+<app-branch-empty *ngIf="branchs.length == 0"></app-branch-empty>
+<div *ngIf="branchs.length > 0">
 <div class="row">
   <div class="col-xs-12">
     <button class="btn btn-success" (click)="onNewBranch()">新增分店</button>
+    <button md-button (click)="openDialog()">Launch dialog</button>
+    You chose: {{selectedOption}}
   </div>
 </div>
 <div class="row">
@@ -14,4 +18,5 @@
     <app-branch-item *ngFor="let branchEl of branchs; let i = index"
                      [branch]='branchEl' [index]="i"></app-branch-item>
   </div>
+</div>
 </div>

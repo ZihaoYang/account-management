@@ -1,23 +1,26 @@
-.brand_item{
-  width:180px;
+.brand_item {
+  width: 180px;
   height: 90px;
   margin-bottom: 80px;
 
 }
-.btn-success{
-  width:180px;
+
+.btn-success {
+  width: 180px;
   height: 90px;
-  background:#b3dcfc;
-  border:1px solid #03a9f4;
-  border-radius:2px;
+  background: #b3dcfc;
+  border: 1px solid #03a9f4;
+  border-radius: 2px;
 
 }
-.center{
+
+.center {
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
-.add-icon{
+
+.add-icon {
   font-size: 40px;
   color: #ffffff;
   margin-top: 23px;

@@ -1,4 +1,4 @@
-import 'hammerjs';
+import "hammerjs";
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -21,8 +21,13 @@ import {MitCitySelectModule} from "./mit-city-select/mit-city-select.module";
 import {BranchNewComponent} from "./branchs/branch-new/branch-new.component";
 import {MitCitySelectService} from "./mit-city-select/mit-city-select.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MdButtonModule, MdCardModule, MdInputModule} from "@angular/material";
-import { HeaderComponent } from './header/header.component';
+import {MdButtonModule, MdCardModule, MdInputModule, MaterialModule} from "@angular/material";
+import {HeaderComponent} from "./header/header.component";
+import {BrandNewComponent} from "./brands/brand-new/brand-new.component";
+import {DialogResultExampleDialog} from "./share/dialog-result-example-dialog";
+import {ToasterComponent} from "./share/toaster/toaster.component";
+import {AccountService} from "./auth/signin/account.service";
+import {BranchService} from "./branchs/branch.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +44,10 @@ import { HeaderComponent } from './header/header.component';
     BranchItemComponent,
     BranchNewComponent,
     BranchEmptyComponent,
-    HeaderComponent
+    HeaderComponent,
+    BrandNewComponent,
+    DialogResultExampleDialog,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,15 +55,19 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    MitCitySelectModule
+    MitCitySelectModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MdButtonModule,
     MdCardModule,
-    MdInputModule
+    MdInputModule,
+    MaterialModule
 
   ],
-  providers: [BrandService, MitCitySelectService],
+  entryComponents: [
+    DialogResultExampleDialog, ToasterComponent
+  ],
+  providers: [BrandService, MitCitySelectService, AccountService, BranchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

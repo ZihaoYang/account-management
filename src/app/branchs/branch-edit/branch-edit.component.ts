@@ -12,6 +12,7 @@ import {IMitNode} from "../../mit-city-select/mit-city-node.model";
   styleUrls: ['./branch-edit.component.css']
 })
 export class BranchEditComponent implements OnInit, OnDestroy {
+  deleteMode = false;
   avaliableAccounts = 0;
   citylist: Array<any>;
 
@@ -110,11 +111,11 @@ export class BranchEditComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     const newBranch = new Branch(
-      this.id,
       this.branchForm.value['name'],
       this.branchForm.value['address'],
       +this.cityCode,
-      this.branchForm.value['accounts']
+      this.branchForm.value['accounts'],
+      this.id
     );
 
     console.log(newBranch);
@@ -134,6 +135,7 @@ export class BranchEditComponent implements OnInit, OnDestroy {
 
   onDeleteBranch() {
     this.branchService.deleteBranch(this.id);
+    this.deleteMode = true;
     this.onCancel();
   }
 
@@ -149,6 +151,8 @@ export class BranchEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onSubmit();
+    if (!this.deleteMode) {
+      this.onSubmit();
+    }
   }
 }
