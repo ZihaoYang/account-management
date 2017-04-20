@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {BranchService} from "../branch.service";
 import {Branch} from "../../model/branch.model";
 import {MdDialog} from "@angular/material";
+import {IMitNode} from "../../mit-city-select/mit-city-node.model";
 
 @Component({
   selector: 'app-branch-new',
@@ -18,6 +19,10 @@ export class BranchNewComponent implements OnInit {
   branchForm: FormGroup;
   cityCode: number;
 
+  district: IMitNode;
+  city: IMitNode;
+  province: IMitNode;
+
   constructor(private route: ActivatedRoute,
               private branchService: BranchService,
               private router: Router,
@@ -29,6 +34,9 @@ export class BranchNewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.district = new IMitNode(null, null, null);
+    this.city = new IMitNode(null, null, null);
+    this.province = new IMitNode(null, null, null);
     this.initForm();
   }
 
