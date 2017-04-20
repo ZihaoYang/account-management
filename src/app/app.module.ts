@@ -28,6 +28,7 @@ import {DialogResultExampleDialog} from "./share/dialog-result-example-dialog";
 import {ToasterComponent} from "./share/toaster/toaster.component";
 import {AccountService} from "./auth/signin/account.service";
 import {BranchService} from "./branchs/branch.service";
+import {ChangepwdComponent} from "./auth/changepwd/changepwd.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {BranchService} from "./branchs/branch.service";
     HeaderComponent,
     BrandNewComponent,
     DialogResultExampleDialog,
-    ToasterComponent
+    ToasterComponent,
+    ChangepwdComponent
   ],
   imports: [
     BrowserModule,

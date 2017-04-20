@@ -9,6 +9,7 @@ import {BranchNewComponent} from "./branchs/branch-new/branch-new.component";
 import {BranchListComponent} from "./branchs/branch-list/branch-list.component";
 import {BranchEditComponent} from "./branchs/branch-edit/branch-edit.component";
 import {BrandNewComponent} from "./brands/brand-new/brand-new.component";
+import {ChangepwdComponent} from "./auth/changepwd/changepwd.component";
 const appRoutes: Routes = [
   {path: '', redirectTo: '/branchs', pathMatch: 'full'},
   {
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     {path: ':id', component: BranchEditComponent}
   ]
   },
-  {path: 'signin', component: SigninComponent}
+  {path: 'signin', component: SigninComponent},
+  {path: 'changepwd', component: ChangepwdComponent}
 ];
 
 @NgModule({
