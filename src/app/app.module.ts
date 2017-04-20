@@ -1,3 +1,4 @@
+import 'hammerjs';
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -19,6 +20,9 @@ import {AppRoutingModule} from "./app-routing.module";
 import {MitCitySelectModule} from "./mit-city-select/mit-city-select.module";
 import {BranchNewComponent} from "./branchs/branch-new/branch-new.component";
 import {MitCitySelectService} from "./mit-city-select/mit-city-select.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MdButtonModule, MdCardModule, MdInputModule} from "@angular/material";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +37,9 @@ import {MitCitySelectService} from "./mit-city-select/mit-city-select.service";
     BranchListComponent,
     BranchEditComponent,
     BranchItemComponent,
+    BranchNewComponent,
     BranchEmptyComponent,
-    BranchNewComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,12 @@ import {MitCitySelectService} from "./mit-city-select/mit-city-select.service";
     HttpModule,
     AppRoutingModule,
     MitCitySelectModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdCardModule,
+    MdInputModule
+
   ],
   providers: [BrandService, MitCitySelectService],
   bootstrap: [AppComponent]

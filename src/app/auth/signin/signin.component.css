@@ -1,0 +1,45 @@
+.login-body{
+  background-image:linear-gradient(-171deg, #81d4fa 0%, #21a9ea 100%);
+  width:100%;
+  height:924px;
+  padding-top: 100px;
+}
+md-card{
+  border-radius:2px;
+  width:360px;
+  height:360px;
+  margin-top: 100px;
+}
+.login_btn{
+  width:300px;
+  height:40px;
+  margin-top: 40px;
+  color: #ffffff;
+}
+.underline{
+  background:#2196f3;
+  width:300px;
+  height:1px;
+}
+.login_input{
+  border: none;
+  margin-bottom: 5px;
+  width: 300px;
+}
+.login_alert{
+  overflow: hidden;
+  width: 100%;
+  font-size: 12px;
+  color:#f44336;
+}
+.login_alert p{
+  float: left;
+}
+.login_alert i{
+  float: right;
+  margin-right: 6px;
+}
+md-input-container{
+  width: 300px;
+  height: 40px;
+}

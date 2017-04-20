@@ -13,6 +13,36 @@ export class BrandService {
       '瓷砖',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
       new Account(2, 'Makeboluo', "123456")
+    ),
+    new Brand(1002, '马可波罗瓷砖',
+      '瓷砖',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
+      new Account(2, 'Makeboluo', "123456")
+    ),
+    new Brand(1002, '马可波罗瓷砖',
+      '瓷砖',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
+      new Account(2, 'Makeboluo', "123456")
+    ),
+    new Brand(1002, '马可波罗瓷砖',
+      '瓷砖',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
+      new Account(2, 'Makeboluo', "123456")
+    ),
+    new Brand(1002, '马可波罗瓷砖',
+      '瓷砖',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
+      new Account(2, 'Makeboluo', "123456")
+    ),
+    new Brand(1002, '马可波罗瓷砖',
+      '瓷砖',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
+      new Account(2, 'Makeboluo', "123456")
+    ),
+    new Brand(1002, '马可波罗瓷砖',
+      '瓷砖',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/240px-Recipe_logo.jpeg', 20,
+      new Account(2, 'Makeboluo', "123456")
     )
   ];
 
