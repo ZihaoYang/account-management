@@ -1,0 +1,78 @@
+<h2 style="color: #999999">布格账号管理系统</h2>
+<div class="row">
+  <div class="col-xs-12" style="width: 100%">
+    <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="&#xE002;品牌名称" class="edit_brand_input" formControlName="brandName">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="产品品类" value="" class="edit_brand_input form-control" type="text" id="category"
+                     formControlName="category">
+            </md-input-container>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="Logo" value="" class="edit_brand_input form-control" type="text" id="logoPath"
+                     formControlName="logoPath">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="登陆账号" value="" class="edit_brand_input form-control" type="text" id="account"
+                     formControlName="account">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="初始密码" value="" class="edit_brand_input form-control" type="text"
+                     id="initPassword" formControlName="initPassword">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="子账号数量" value="" class="edit_brand_input form-control" type="text"
+                     id="accountNum" formControlName="accountNum">
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center" style="width: 300px">
+          <button md-button class="login_btn confirm" [disabled]="!brandForm.valid" type="submit"
+                  style="color: #ffffff">确定
+          </button>
+        </div>
+        <div class="center" style="width: 300px">
+          <a md-button class="login_btn cancel" (click)="onCancel()" type="button"
+             style="color: #ffffff;margin-top: 30px">取消</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

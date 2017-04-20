@@ -4,6 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {Branch} from "../../model/branch.model";
 import {BranchService} from "../branch.service";
 import {MdDialog} from "@angular/material";
+import {DialogResultExampleDialog} from "../../share/dialog-result-example-dialog";
 
 @Component({
   selector: 'app-branch-list',
@@ -47,18 +48,18 @@ export class BranchListComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  // openDialog() {
-  //   // let config = new MdDialogConfig();
-  //   let dialogRef = this.dialog.open(DialogResultExampleDialog,{
-  //         disableClose: true
-  //       });
-  //   dialogRef.componentInstance.test = "test";
-  //   // setTimeout(() => {
-  //   //   dialogRef.close();
-  //   // }, 3000);
-  //   // dialogRef.afterClosed().subscribe(result => {
-  //   //   this.selectedOption = result;
-  //   // });
-  // }
+  openDialog() {
+    // let config = new MdDialogConfig();
+    let dialogRef = this.dialog.open(DialogResultExampleDialog, {
+      disableClose: true
+    });
+    dialogRef.componentInstance.test = "test";
+    // setTimeout(() => {
+    //   dialogRef.close();
+    // }, 3000);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
+  }
 
 }
