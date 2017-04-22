@@ -3,7 +3,12 @@ import {MdDialogRef} from "@angular/material";
 @Component({
   selector: 'dialog-result-example-dialog',
   templateUrl: './dialog-result-example-dialog.html',
+  styleUrls: ['./dialog-result-example-dialog.css']
 })
+
+
+
+
 export class DialogResultExampleDialog {
   @Input() test: string;
 

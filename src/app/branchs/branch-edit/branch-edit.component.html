@@ -1,52 +1,77 @@
 <h1>分店列表</h1>
-<p>剩余可分配帐号：{{avaliableAccounts}}个</p>
-<div class="row">
+<p style="text-align: center; margin-bottom: 30px">剩余可分配帐号：{{avaliableAccounts}}个</p>
+<div class="row" >
   <div class="col-xs-12">
     <form [formGroup]="branchForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-          <label>分店地址</label>
           <app-mit-city-select (result)="citySelect($event)"
                                [provinceselected]="province"
                                [cityselected]="city"
                                [districtselected]="district"
           ></app-mit-city-select>
-          <div class="form-group" style="margin-top: 20px;">
-            <input type="text" id="address" formControlName="address" class="form-control">
+          <div class="form-group">
+            <md-input-container class="center">
+              <input mdInput placeholder="分店地址"  type="text" id="address" formControlName="address" class="form-control">
+            </md-input-container>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
           <div class="form-group">
-            <label for="branchName">分店简称</label>
-            <input type="text" id="branchName" formControlName="name" class="form-control">
+            <md-input-container class="center">
+              <input mdInput placeholder="分店简称"  type="text" id="branchName" formControlName="name" class="form-control">
+            </md-input-container>
           </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="center" style="width: 510px;">
+            <a md-button routerLink="." class="smallBtn btn-danger right" type="button" style="width: 100px">保存更改</a>
+          </div>
+
         </div>
       </div>
 
+
       <div class="row">
+
+        <div class="row center" style=" width: 510px; margin-top: 40px!important">
+          <div class="col-xs-4">
+            <p class="noMargin">账号</p>
+          </div>
+          <div class="col-xs-4">
+            <p class="noMargin">密码</p>
+          </div>
+        </div>
+
         <div class="col-xs-12" formArrayName="accounts">
           <!--<div class="row">-->
-          <div class="row"
+
+          <div class="row center"
                *ngFor="let account of branchForm.get('accounts').controls; let i = index"
                [formGroupName]="i"
-               style="margin-top: 10px;">
-            <div class="col-xs-2">
-              <p>分店简称</p>
+               style=" width: 510px">
+            <div class="col-xs-4 noPadding">
+              <md-input-container class="center smallInput">
+                <input mdInput type="text" formControlName="username" class="form-control">
+              </md-input-container>
             </div>
-            <div class="col-xs-4">
-              <input type="text" class="form-control" formControlName="id" style="display: none">
-              <input type="text" class="form-control" formControlName="username">
+            <div class="col-xs-4 noPadding">
+
+              <md-input-container class="center smallInput">
+                <input mdInput type="text" formControlName="password" class="form-control">
+              </md-input-container>
+
             </div>
-            <div class="col-xs-2">
-              <input type="text" class="form-control" formControlName="password">
+            <div class="col-xs-2 noPadding">
+              <a md-button routerLink="." class="smallBtn btn-danger" type="button">复制账号密码</a>
             </div>
-            <div class="col-xs-2">
-              <button type="button" class="btn btn-danger">复制账号密码</button>
-            </div>
-            <div class="col-xs-2">
-              <button type="button" class="btn btn-danger" (click)="onDeleteAccount(i)">注销</button>
+            <div class="col-xs-2 noPadding">
+              <a md-button routerLink="." class="smallBtn btn-danger" (click)="onDeleteAccount(i)" type="button">注销</a>
             </div>
             <!--<div class="col-xs-2">-->
             <!--<button type="button" class="btn btn-danger" (click)="onDeleteIngredient(i)">注销</button>-->
@@ -54,9 +79,12 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="margin-top: 60px;">
         <div class="col-xs-12">
-          <button type="button" class="btn btn-default center-block" (click)="onAssignAccount()">分配账号</button>
+          <div class="center" style="width: 300px;">
+            <button md-button routerLink="." type="button" class="btn-success login_btn confirm" (click)="onAssignAccount()">分配账号</button>
+          </div>
+
         </div>
       </div>
 
@@ -68,7 +96,9 @@
         <!--<button type="button" class="btn btn-default center-block" (click)="onCancel()">返回分店列表</button>-->
         <!--</div>-->
         <div class="col-xs-12">
-          <button type="button" class="btn btn-danger center-block" (click)="onDeleteBranch()">删除分店</button>
+          <div class="center" style="width: 300px;">
+            <button md-button routerLink="." type="button" class="btn-success login_btn cancel" (click)="onDeleteBranch()">删除分店</button>
+          </div>
         </div>
       </div>
     </form>

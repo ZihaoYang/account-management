@@ -1,0 +1,9 @@
+md-input-container{
+  width: 480px;
+  height: 60px;
+  margin: 60px auto 10px auto;
+  display: block;
+}
+.save{
+  float: right;
+}

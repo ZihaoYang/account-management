@@ -6,6 +6,8 @@
 
 .select {
   display: inline-block;
+  width: 160px;
+  text-align: center;
 }
 
 .mit-city-select .select input {
@@ -15,9 +17,10 @@
   display: inline-block;
   width: 100%;
   padding: 0.5rem 0.75rem;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.25;
   color: #55595c;
+  text-align: center;
 }
 
 .mit-city-select .select input:disabled {
@@ -31,7 +34,10 @@
   background: #FFF;
   z-index: 9999;
   border: 1px solid #CCC;
-  width: 400px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .mit-city-select .list-menu .sub-list {

@@ -1,0 +1,7 @@
+.toaster{
+  background:rgba(0,0,0,0.87);
+  border-radius:2px;
+  width:320px;
+  height:113px;
+  text-align: center;
+}

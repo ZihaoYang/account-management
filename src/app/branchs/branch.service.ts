@@ -8,6 +8,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class BranchService {
   branchChanged = new Subject<Branch[]>();
+  //empty
   // private branchs: Branch[] = [];
   private _url: string;
   private options: RequestOptions;
@@ -21,12 +22,7 @@ export class BranchService {
 
 
   fetchAllByBrandId(brandID: number) {
-    // this.http.post(this._url, brandID, this.options)
-    //   .map(response => response.json()).subscribe(data => {
-    //   this.branchs = data;
-    //   this.branchChanged.next(this.branchs.slice());
-    // }, error => this.errorHandel(error));
-    // this.router.navigate(['/branchs']);
+
   }
 
 

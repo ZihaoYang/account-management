@@ -1,49 +1,53 @@
-<h1>分店列表</h1>
+<h2 style="color: #999999">分店列表</h2>
 <div class="row">
   <div class="col-xs-12">
     <form [formGroup]="branchForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-          <label>分店地址</label>
           <app-mit-city-select (result)="citySelect($event)"
                                [provinceselected]="province"
                                [cityselected]="city"
                                [districtselected]="district"></app-mit-city-select>
           <div class="form-group" style="margin-top: 20px;">
-            <input type="text" id="address" formControlName="address" class="form-control">
+            <md-input-container class="center">
+              <input mdInput placeholder="分店地址"  type="text" id="address" formControlName="address" class="form-control">
+            </md-input-container>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
+
           <div class="form-group">
-            <label for="branchName">分店简称</label>
-            <input type="text" id="branchName" formControlName="name" class="form-control">
+            <md-input-container class="center">
+              <input mdInput placeholder="分店简称"  type="text" id="branchName" formControlName="name" class="form-control">
+            </md-input-container>
           </div>
-        </div>
+
       </div>
       <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
+
           <div class="form-group">
-            <label for="branchName">账号</label>
-            <input type="text" id="username" formControlName="username" class="form-control">
+            <md-input-container class="center">
+              <input mdInput placeholder="账号"  type="text" id="username" formControlName="username" class="form-control">
+            </md-input-container>
           </div>
-        </div>
+
       </div>
       <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
+
           <div class="form-group">
-            <label for="branchName">初始密码</label>
-            <input type="text" id="password" formControlName="password" class="form-control">
+            <md-input-container class="center">
+              <input mdInput placeholder="初始密码"  type="text" id="password" formControlName="password" class="form-control">
+            </md-input-container>
           </div>
-        </div>
+
       </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success center-block" [disabled]="!branchForm.valid">确定</button>
+      <div class="row" style="margin-top: 30px!important;">
+        <div class="center" style="width: 300px;">
+          <button md-button routerLink="." type="submit" class="btn-success login_btn confirm" [disabled]="!branchForm.valid">确定</button>
         </div>
-        <div class="col-xs-12">
-          <button type="button" class="btn btn-default center-block" (click)="onCancel()">取消</button>
+        <div class="center" style="width: 300px; margin-top: 30px!important;">
+          <button md-button routerLink="." type="submit" class="btn-success login_btn cancel" (click)="onCancel()">取消</button>
         </div>
       </div>
     </form>

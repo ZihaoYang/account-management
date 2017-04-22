@@ -1,0 +1,13 @@
+app-branch-item{
+  width: 300px;
+  text-align: center;
+  border-bottom: solid 1px #d5d5d5;
+  height: 70px;
+  padding-top: 40px;
+
+}
+
+app-branch-item.label{
+  color: #4d4d4d!important;
+}
+
