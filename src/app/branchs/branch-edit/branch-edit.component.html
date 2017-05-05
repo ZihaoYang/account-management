@@ -24,6 +24,30 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-default center-block" type="submit">确定修改</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="branchName">账号</label>
+            <input type="text" id="username" formControlName="username" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="branchName">初始密码</label>
+            <input type="text" id="password" formControlName="password" class="form-control">
+            <button type="button" (click)="onChangePwd()">重置密码</button>
+          </div>
+        </div>
+      </div>
+
 
       <div class="row">
         <div class="col-xs-12" formArrayName="accounts">
@@ -36,17 +60,16 @@
               <p>分店简称</p>
             </div>
             <div class="col-xs-4">
-              <input type="text" class="form-control" formControlName="id" style="display: none">
               <input type="text" class="form-control" formControlName="username">
             </div>
             <div class="col-xs-2">
               <input type="text" class="form-control" formControlName="password">
             </div>
             <div class="col-xs-2">
-              <button type="button" class="btn btn-danger">复制账号密码</button>
+              <button type="button" class="btn btn-danger" (click)="onClickResetBtn(account.id,$event)">重置密码</button>
             </div>
             <div class="col-xs-2">
-              <button type="button" class="btn btn-danger" (click)="onDeleteAccount(i)">注销</button>
+              <button type="button" class="btn btn-danger" (click)="onDeleteAccount(account.id)">注销</button>
             </div>
             <!--<div class="col-xs-2">-->
             <!--<button type="button" class="btn btn-danger" (click)="onDeleteIngredient(i)">注销</button>-->

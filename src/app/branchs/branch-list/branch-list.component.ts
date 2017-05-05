@@ -34,10 +34,6 @@ export class BranchListComponent implements OnInit {
         }
       }
     );
-    this.branchs = this.branchService.getBranchs();
-    for (let branch of this.branchs) {
-      this.totalAccounts += branch.accounts.length;
-    }
   }
 
   onNewBranch() {

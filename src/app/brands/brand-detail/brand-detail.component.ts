@@ -30,7 +30,7 @@ export class BrandDetailComponent implements OnInit {
   }
 
   onDeleteBrand() {
-    this.brandService.deleteBrand(this.id);
+    this.brandService.deleteBrand(this.id, this.brand.id);
     this.onBackBrand();
   }
 

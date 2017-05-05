@@ -1,28 +1,11 @@
 import {Http, Headers, RequestOptions, Response, URLSearchParams} from "@angular/http";
 import {Injectable} from "@angular/core";
-import {Account} from "../../model/account.model";
+import {Account} from "../model/account.model";
 import "rxjs/Rx";
 @Injectable()
 export class AccountService {
   private result: String;
-  // constructor(private http:Http){}
-  //
-  // loginUser(account:Account){
-  //   let headers = new Headers();
-  //   headers.append('Content-Type','application/x-www-form-urlencoded; charset=utf-8');
-  //   return this.http.post('http://localhost:8080/login',account,{
-  //     headers:headers
-  //   }).map(res=>res.json())
-  //     .subscribe(
-  //       data=>this.result = data,
-  //       err => console.log('ERROR!!!'),
-  //       () => console.log('Got response from login server: ',this.result)
-  //     );
-  // }
-  // private _loginPath = 'login';
-  // private _logoutPath = 'logout?logout';
-  // private _registerPath = 'register';
-  // private remember = false;
+
   private credentialStr: string;
 
   account: Account;
@@ -44,10 +27,11 @@ export class AccountService {
       .map((response: Response) => response.json())
       .subscribe(
         data => {
-          // console.log(data);
+          console.log(data);
           if (data.name) {
             this.isLoggedIn = true;
             this.account = data;
+            console.log(data.roles[0]);
             sessionStorage.setItem('user', JSON.stringify(this.account));
           }
           else {
@@ -61,6 +45,38 @@ export class AccountService {
           callback && callback(this.isLoggedIn);
         }
       );
+  }
+
+  checkBugeLogin(): boolean {
+    let userStr = sessionStorage.getItem('user');
+    let user = JSON.parse(userStr);
+    if (userStr) {
+      this.isLoggedIn = true;
+      if (user.roles[0] == 'ADMIN') {
+        return true;
+      }
+    }
+    else {
+      this.isLoggedIn = false;
+    }
+    return false;
+
+  }
+
+  checkDealerLogin(): boolean {
+    let userStr = sessionStorage.getItem('user');
+    let user = JSON.parse(userStr);
+    if (userStr) {
+      this.isLoggedIn = true;
+      if (user.roles[0] == 'BRAND') {
+        return true;
+      }
+    }
+    else {
+      this.isLoggedIn = false;
+    }
+    return false;
+
   }
 
 }

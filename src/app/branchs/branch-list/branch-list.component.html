@@ -1,5 +1,5 @@
-<app-branch-empty *ngIf="branchs.length == 0"></app-branch-empty>
-<div *ngIf="branchs.length > 0">
+<app-branch-empty *ngIf="branchs!=null && branchs.length == 0"></app-branch-empty>
+<div *ngIf="branchs!=null && branchs.length > 0">
 <div class="row">
   <div class="col-xs-12">
     <button class="btn btn-success" (click)="onNewBranch()">新增分店</button>

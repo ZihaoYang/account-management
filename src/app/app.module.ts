@@ -26,9 +26,12 @@ import {HeaderComponent} from "./header/header.component";
 import {BrandNewComponent} from "./brands/brand-new/brand-new.component";
 import {DialogResultExampleDialog} from "./share/dialog-result-example-dialog";
 import {ToasterComponent} from "./share/toaster/toaster.component";
-import {AccountService} from "./auth/signin/account.service";
-import {BranchService} from "./branchs/branch.service";
+import {AccountService} from "./auth/account.service";
 import {ChangepwdComponent} from "./auth/changepwd/changepwd.component";
+import {UtilityService} from "./share/utility.service";
+import {AuthGuardBrand} from "./auth/auth-guard-brand.service";
+import {AuthGuardAdmin} from "./auth/auth-guard-admin.service";
+import {PageNotFoundComponent} from "./share/page-not-found/page-not-found.component";
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import {ChangepwdComponent} from "./auth/changepwd/changepwd.component";
     BrandNewComponent,
     DialogResultExampleDialog,
     ToasterComponent,
-    ChangepwdComponent
+    ChangepwdComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,7 @@ import {ChangepwdComponent} from "./auth/changepwd/changepwd.component";
   entryComponents: [
     DialogResultExampleDialog, ToasterComponent
   ],
-  providers: [BrandService, MitCitySelectService, AccountService, BranchService],
+  providers: [BrandService, MitCitySelectService, AccountService, UtilityService, AuthGuardAdmin, AuthGuardBrand],
   bootstrap: [AppComponent]
 })
 export class AppModule {

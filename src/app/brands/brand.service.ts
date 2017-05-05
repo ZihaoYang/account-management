@@ -42,7 +42,8 @@ export class BrandService {
       .map((response: Response) => response.json()).subscribe(data => {
       this.brands = data;
       console.log(this.brands);
-      this.brandChanged.next(this.brands.slice());
+      console.log(this.brands[0].branches);
+      this.brandChanged.next(this.brands);
     }, error => this.errorHandel(error));
   }
 
@@ -55,17 +56,18 @@ export class BrandService {
     return this.brands.slice();
   }
 
-  getBrand(index: number) {
-    return this.brands[index];
+  getBrand(id: number) {
+    return this.brands.find(function (brand) {
+      return brand.id == id;
+    });
+    // this.brandChanged.subscribe((value) => {
+    //   console.log("Subscription got", value); // Subscription wont get
+    //                       // anything at this point
+    // })
+
   }
 
   addBrand(registerAdminDTO: BrandDTO) {
-    // let registerAdminDTO = '{"name":"'+ brand.name
-    //   +'","salecategory":"'+brand.salecategory
-    //   +'","logo":"'+brand.logo
-    //   +'","totalAccountNum":"'+brand.totalAccountNum
-    //   +'","userName":"'+brand.adminAccount.username
-    //   +'","password":"'+brand.adminAccount.password +'"}';
     console.log(registerAdminDTO);
     this.http.put(this._url, registerAdminDTO, this.options)
       .map(response => response.json()).subscribe(data => {
@@ -74,10 +76,13 @@ export class BrandService {
     }, error => this.errorHandel(error));
   }
 
-  updateBrand(index: number, newBrand: BrandDTO) {
+  updateBrand(id: number, newBrand: BrandDTO) {
     // console.log(newBrand);
     this.http.post(`${this._url}/${newBrand.id}`, JSON.stringify(newBrand), this.options)
       .map(response => response.json()).subscribe(data => {
+      let index = this.brands.findIndex(function (brand) {
+        return brand.id == id;
+      })
       this.brands[index] = data;
       this.brandChanged.next(this.brands.slice());
     }, error => this.errorHandel(error));
@@ -85,10 +90,18 @@ export class BrandService {
 
   }
 
-  deleteBrand(index: number) {
-    this.brands.splice(index, 1);
-    console.log(this.brands);
-    this.brandChanged.next(this.brands.slice());
+  deleteBrand(index: number, brandId: number) {
+    this.http.delete(`${this._url}/${brandId}`, this.options).subscribe(response => {
+      if (response.ok) {
+        this.brands.splice(index, 1);
+        console.log(this.brands);
+        this.brandChanged.next(this.brands.slice());
+      }
+    }, error => this.errorHandel(error));
+  }
+
+  transfer2Branch() {
+    this.brandChanged.next(this.brands);
   }
 
   errorHandel(error) {

@@ -1,7 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {Brand} from "../../../model/brand.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {BranchService} from "../../../branchs/branch.service";
 
 @Component({
   selector: 'app-brand-item',
@@ -13,16 +12,15 @@ export class BrandItemComponent implements OnInit {
   @Input() index: number;
 
   constructor(private route: ActivatedRoute,
-              private branchService: BranchService,
               private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  onClick(brandId) {
-    console.log(brandId);
-    this.branchService.fetchAllByBrandId(brandId);
+  onClick() {
+    //this.branchService.setActiveBrand(this.brand.id, this.brand.adminAccount.username);
+    this.router.navigate([this.brand.id, 'branchs'], {relativeTo: this.route});
   }
 
 }

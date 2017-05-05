@@ -2,9 +2,9 @@ import {Component, OnInit} from "@angular/core";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BranchService} from "../branch.service";
-import {Branch} from "../../model/branch.model";
 import {MdDialog} from "@angular/material";
 import {IMitNode} from "../../mit-city-select/mit-city-node.model";
+import {BranchDTO} from "../../model/branchDTO.model";
 
 @Component({
   selector: 'app-branch-new',
@@ -45,9 +45,20 @@ export class BranchNewComponent implements OnInit {
     let address = '';
     let cityCode = '';
     let username = '';
-    // if(this.branchService.getBranchs().length == 0){
-    //   username =
-    // }
+    if (this.branchService.getBranchs().length == 0) {
+      username = this.branchService.getBrandName() + '0001';
+    }
+    else {
+      let lastUsername = this.branchService.getBranch(this.branchService.getBranchs().length - 1).branchAccount.username;
+      let lastFour = lastUsername.substr(lastUsername.length - 4);
+      let digit = parseInt(lastFour);
+      digit = digit + 1;
+      let str = "" + digit;
+      let pad = "0000"
+      str = pad.substring(0, pad.length - str.length) + str
+      let prefix = lastUsername.substr(0, lastUsername.length - 4);
+      username = prefix + str;
+    }
     let password = '123456';
 
     this.branchForm = new FormGroup({
@@ -69,12 +80,18 @@ export class BranchNewComponent implements OnInit {
   }
 
   onSubmit() {
-    const newBranch = new Branch(this.branchForm.value['name'],
-      this.branchForm.value['address'],
-      this.cityCode,
-      [], this.branchId);
+    let name = this.branchForm.value['name'];
+    let address = this.branchForm.value['address'];
+    let brandId = +this.branchService.getBrandId();
+    let username = this.branchForm.value['username'];
+    let password = this.branchForm.value['password'];
+    let newBranch = new BranchDTO(name,
+      address,
+      this.cityCode, brandId,
+      username, password);
     console.log(newBranch);
     this.branchService.addBranch(newBranch);
+
     // let dialogRef = this.dialog.open(ToasterComponent,{
     //           disableClose: true
     //         });
@@ -87,7 +104,7 @@ export class BranchNewComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['./'], {relativeTo: this.route});
   }
 
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {AccountService} from "./account.service";
+import {AccountService} from "../account.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Account} from "../../model/account.model";
 
@@ -41,8 +41,8 @@ export class SigninComponent implements OnInit {
     this.accountService.authenticate(account, isSuccess => {
       if (isSuccess) {
         console.log('success: ' + sessionStorage.getItem('user'));
+        // console.log(sessionStorage.getItem('user').roles)
         this.router.navigate(['brands']);
-        // this.router.navigate(['new'], {relativeTo: this.route});
       }
       else {
         console.log('failed');

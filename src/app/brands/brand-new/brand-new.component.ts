@@ -65,7 +65,7 @@ export class BrandNewComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['./'], {relativeTo: this.route});
   }
 
 }
